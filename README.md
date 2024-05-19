@@ -22,7 +22,7 @@ Randomly generate prompts for image generation.
   - ComfyUI のワークフローモデル内で以下を使用
     - 必要に応じて同じものを揃えたり、自分の好みの奴に差し替える
   - SDXLモデル
-    - AnythingXL_xl.safetensors
+    - "animagineXLV31_v31.safetensors"
 
 ## インストール方法
 
