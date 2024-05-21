@@ -1,9 +1,11 @@
 # API endpoint of ComfyUI
-COMFYUI_URL = 'http://localhost:8188/'
+COMFYUI_URL = 'http://127.0.0.1:8188/'
 # ComfyUI workflow
-COMFYUI_WORKFLOW = "./Workflow/text2image_api.json"
+COMFYUI_WORKFLOW = "./Workflow/text2image_lcm_api.json"
+#COMFYUI_WORKFLOW = "./Workflow/text2image_api.json"
 # ComfyUI model checkpoint
-COMFYUI_USE_CHECKPOINT = "animagineXLV31_v31.safetensors"
+COMFYUI_USE_CHECKPOINT = "bluePencilXLLCM_v500Lightning.safetensors"
+#COMFYUI_USE_CHECKPOINT = "animagineXLV31_v31.safetensors"
 #COMFYUI_USE_CHECKPOINT = "AnythingXL_xl.safetensors"
 # ComfyUI checkpoint node
 COMFYUI_NODE_CHECKPOINT = "6"
