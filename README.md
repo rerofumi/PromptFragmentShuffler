@@ -22,7 +22,12 @@ Randomly generate prompts for image generation.
   - ComfyUI のワークフローモデル内で以下を使用
     - 必要に応じて同じものを揃えたり、自分の好みの奴に差し替える
   - SDXLモデル
-    - "animagineXLV31_v31.safetensors"
+    - config.py にて指定
+    - 初期値は高速生成ができる LCM model が設定されているので、以下の名前のものを用意して ComfyUIで使える様にしておく
+      - "bluePencilXLLCM_v500Lightning.safetensors"
+    - 他、時間はかかるが綺麗な生成を行うために以下も推奨
+      - "animagineXLV31_v31.safetensors"
+    - その他の model を使いたいときは適当に config.py の中で指定する
 
 ## インストール方法
 
@@ -65,6 +70,9 @@ config.py 内にある設定を必要に応じて編集する、変更したら 
   - COMFYUI_URL
     - ComfyUI API へのアクセスポイントを指定
     - ローカル PC 内に起動している時は修正しなくて良いはず
+  - COMFYUI_WORKFLOW
+    - LCM model とそうでない時とで使う workflow が違う
+    - 必要に応じてコメントアウトしたり、外したりで使う方を選択する
 
 ### 基本的な使い方
 
@@ -109,5 +117,8 @@ rerofumi
 
 ## 変更履歴
 
+- May.21.2024
+    - LCM モデルによる高速生成に対応
+    - ComfyUI へのアクセスが遅い問題の回避
 - May.19.2024
     - first release
