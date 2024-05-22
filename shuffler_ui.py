@@ -20,7 +20,7 @@ def add_prompt(type, prompt):
     if not os.path.exists(wordfile):
         return prompt
     with open(wordfile, "r", encoding="utf8") as f:
-        words = [word.strip() for word in f.readlines()]
+        words = [word.strip() for word in f.readlines() if not word.strip().startswith('#')]
     for key in ["1", "2"]:
         common_words = list(set(words) - set(prompt[key]))
         if len(common_words) > 0:
@@ -37,7 +37,7 @@ def remove_prompt(type, prompt):
     if not os.path.exists(wordfile):
         return prompt
     with open(wordfile, "r", encoding="utf8") as f:
-        words = [word.strip() for word in f.readlines()]
+        words = [word.strip() for word in f.readlines() if not word.strip().startswith('#')]
     for key in ["1", "2"]:
         common_words = list(set(prompt[key]) & set(words))
         if len(common_words) > 0:
@@ -54,7 +54,7 @@ def replace_prompt(type, prompt):
     if not os.path.exists(wordfile):
         return prompt
     with open(wordfile, "r", encoding="utf8") as f:
-        words = [word.strip() for word in f.readlines()]
+        words = [word.strip() for word in f.readlines() if not word.strip().startswith('#')]
     for key in ["1", "2"]:
         common_words = list(set(prompt[key]) & set(words))
         if len(common_words) > 0:
@@ -73,7 +73,7 @@ def add_prompt_to_zero(type, prompt):
     if not os.path.exists(wordfile):
         return prompt
     with open(wordfile, "r", encoding="utf8") as f:
-        words = [word.strip() for word in f.readlines()]
+        words = [word.strip() for word in f.readlines() if not word.strip().startswith('#')]
     # prompt["0"] にある単語は除外
     common_words = list(set(words) - set(prompt["0"]))
     if len(common_words) > 0:
@@ -174,7 +174,7 @@ def random_prompt():
         prompt = add_prompt_to_zero("cloths", prompt)
     for i in range(3):
         prompt = add_prompt_to_zero("accessory", prompt)
-    for i in range(2):
+    for i in range(10):
         prompt = add_prompt_to_zero("location", prompt)
     for i in range(5):
         prompt = add_prompt_to_zero("props", prompt)
